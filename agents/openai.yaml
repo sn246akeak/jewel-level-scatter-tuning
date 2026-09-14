@@ -1,0 +1,7 @@
+interface:
+  display_name: "Jewel Scatter Tuning"
+  short_description: "Tune playable jewel scatter states."
+  default_prompt: "Use $jewel-level-scatter-tuning to tune a pixel-art jewel level into a playable, structure-preserving scatter state."
+
+policy:
+  allow_implicit_invocation: true
