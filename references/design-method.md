@@ -7,6 +7,7 @@ Use this procedure only after `source_analysis.json` and `priority_profile.json`
 Require:
 
 - Completed/base board, dimensions, palette, and exact inventory.
+- `design_spec.json` for AI semantics, the F-profile decision, and optional protected-region counts.
 - `source_analysis.json` for measured features and AI semantics.
 - `priority_profile.json` for the selected profiles and fixed order.
 - A stable revision identifier shared by all artifacts.
@@ -51,6 +52,8 @@ After a complete candidate exists:
 7. Keep the change only when it improves the earliest affected rule without breaking an earlier rule.
 
 Save the accepted candidate as `initial_board.json`; never paint an unvalidated draft into KStage.
+
+Use `scripts/run_level.py design` for this procedure. Per-level changes belong in `design_spec.json`, not in a new Python program or a hand-edited candidate.
 
 ## Initial-board artifact
 

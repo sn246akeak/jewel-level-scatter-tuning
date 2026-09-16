@@ -23,7 +23,8 @@ Write `source_analysis.json` with this shape:
     "near_hue_groups": []
   },
   "ai_semantics": {
-    "symmetric": false,
+    "visual_pairing": false,
+    "exact_pixel_symmetry": false,
     "contains_face_or_expression": false,
     "containment_structure": false,
     "outline_or_linework_dominant": false,
@@ -50,7 +51,8 @@ Write `priority_profile.json` with this shape:
   "evidence": {
     "bright_color_ratio": 0.58,
     "near_hue_groups": ["yellow-orange", "pink-purple"],
-    "symmetric": true
+    "visual_pairing": true,
+    "exact_pixel_symmetry": false
   }
 }
 ```

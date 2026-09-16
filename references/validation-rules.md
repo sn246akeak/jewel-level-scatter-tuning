@@ -2,21 +2,9 @@
 
 Validate the exact candidate that will be written to KStage. Load rule definitions from [priority-rules.md](priority-rules.md) and the fixed order from the candidate's `priority_profile.json`.
 
-## Current commands
+## Commands
 
-Run board validation:
-
-```bash
-python3 scripts/validate_initial_board.py initial_board.json --json
-```
-
-Capture the JSON output as `validation_report.json`. Before any Unity-facing import, export, ZIP, or `level.json` handoff, run:
-
-```bash
-python3 scripts/validate_color_ids.py /path/to/level.json
-```
-
-Use `--fix` only to repair an identified ID mismatch, then validate the repaired file again.
+For normal runs use `python3 scripts/run_level.py review --run /path/to/run`, followed by `check`. The standalone validator is for maintenance. Unity export validation still uses `scripts/validate_color_ids.py` when an export is requested.
 
 ## Required report fields
 
@@ -38,7 +26,7 @@ Record these machine or mathematical checks:
 | Per-color four-direction components, eight-direction components, and true flying points | R10 |
 | Dominant-color-over-50% and rare-color shortage warnings | R11 |
 
-The current `validate_initial_board.py` covers only part of this contract: dimensions, totals, same-base conflicts, transparent overflow, boundary color count, near-hue coverage, and four/eight-direction components. Until its Phase 3 upgrade is complete, calculate and record the missing quantitative checks explicitly. Marking them absent or `unknown` blocks completion.
+`validate_initial_board.py` emits every metric in this table. Warning thresholds identify items for AI review; they do not pretend to decide visual quality.
 
 ## AI-only checks
 
@@ -56,9 +44,9 @@ Record each as `pass` or `fail` with short evidence. Do not label a script heuri
 1. Reject immediately if R1 or R2 fails.
 2. Evaluate R3-R11 in the exact profile order.
 3. A failure at an earlier position cannot be offset by a later result.
-4. Revise `initial_board.json`, increment `candidate_revision`, and regenerate the entire report after any board change.
-5. Accept locally only when every required result is present and no failure remains.
-6. After KStage painting or commit, compare the visible editor inventory and canvas with the accepted candidate. Add editor verification to the same report before final completion.
+4. Revise `design_spec.json` and run `run_level.py design`; it increments the revision and regenerates the candidate and report.
+5. Accept only when the visual review names the computed candidate hash, all five visual checks pass, and each warning has its own passing review with evidence. Face N/A is forbidden for face-bearing sources. The R8 check cannot be skipped. See [design-spec.md](design-spec.md) for the single review input. Exact symmetry requests fail mechanically if the output differs.
+6. During KStage painting or commit, record the observed inventory checks and any visible errors. Finish according to [kstage-editor-workflow.md](kstage-editor-workflow.md#fixed-finish-sequence); do not add routine post-save screenshots, pixel comparisons, or refresh/restore tests. Distinguish browser-save confirmation from optional tests: record unperformed tests as `not_run` and do not let them block normal completion.
 
 ## Report skeleton
 

@@ -2,6 +2,17 @@
 
 [English](README_EN.md) | 简体中文
 
+## 选择版本
+
+当前分支是**配色算法实验版**，新功能默认关闭，暂不合并到稳定版。
+
+| 版本 | 查看代码 | 下载 |
+|---|---|---|
+| 稳定版：正常使用 | [main](https://github.com/sn246akeak/jewel-level-scatter-tuning/tree/main) | [下载稳定版 ZIP](https://github.com/sn246akeak/jewel-level-scatter-tuning/archive/refs/heads/main.zip) |
+| PR 实验版：测试新的配色候选算法 | [实验分支](https://github.com/sn246akeak/jewel-level-scatter-tuning/tree/codex/profile-candidate-optimizer) | [下载实验版 ZIP](https://github.com/sn246akeak/jewel-level-scatter-tuning/archive/refs/heads/codex/profile-candidate-optimizer.zip) |
+
+实验背景、实现方式和当前验证结果见 [PR 版说明](PR_DESCRIPTION.md)。也可以在仓库页面的分支下拉菜单中切换版本。
+
 一个面向像素宝石分类关卡的 Codex Skill，用于分析成品图、设计可玩的预填充盘面，并通过规则校验与 AI 视觉复核，兼顾可玩性、画面结构和产出稳定性。
 
 ## 产出背景
@@ -34,4 +45,3 @@ references/   分类、规则、设计、验证与编辑器工作流
 scripts/      盘面处理与确定性校验脚本
 agents/       Codex 展示与调用配置
 ```
-

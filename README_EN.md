@@ -2,6 +2,17 @@
 
 English | [简体中文](README.md)
 
+## Choose a version
+
+This branch contains the experimental candidate optimizer. It is disabled by default and is kept separate from the stable version.
+
+| Version | Source | Download |
+|---|---|---|
+| Stable | [main](https://github.com/sn246akeak/jewel-level-scatter-tuning/tree/main) | [Stable ZIP](https://github.com/sn246akeak/jewel-level-scatter-tuning/archive/refs/heads/main.zip) |
+| Draft PR experiment | [Experimental branch](https://github.com/sn246akeak/jewel-level-scatter-tuning/tree/codex/profile-candidate-optimizer) | [Experimental ZIP](https://github.com/sn246akeak/jewel-level-scatter-tuning/archive/refs/heads/codex/profile-candidate-optimizer.zip) |
+
+Use the repository's branch selector to switch versions. See [the PR description (Chinese)](PR_DESCRIPTION.md) for the motivation, implementation, results, and limitations.
+
 A Codex Skill for pixel-art jewel sorting levels. It analyzes completed artwork, designs playable pre-fill boards, and combines rule-based validation with AI visual review to preserve playability, visual structure, and production consistency.
 
 ## Background
@@ -34,4 +45,3 @@ references/   Classification, rules, design, validation, and editor workflow
 scripts/      Board-processing and deterministic validation scripts
 agents/       Codex display and invocation metadata
 ```
-
